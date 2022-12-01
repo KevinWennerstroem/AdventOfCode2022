@@ -34,8 +34,8 @@ foreach(var item in elveCalories)
 
 var top3Sum = first + second + third;
 
-Console.Write("Elve with the most calories: " + first);
-Console.Write("Top 3 Eleves in sum: " + top3Sum);
+Console.WriteLine("Elve with the most calories: " + first);
+Console.WriteLine("Top 3 Eleves in sum: " + top3Sum);
 
 
 Console.Read();
