@@ -11,29 +11,7 @@ foreach (var rucksack in rucksacks)
     {
         if (secondItem.Contains(character))
         {
-            int index = 1;
-            if (Char.IsLower(character))
-            {
-                for (char i = 'a'; i <= 'z'; i++)
-                {
-                    if (i == character)
-                        break;
-                    else
-                        index++;
-                }
-            }else
-            {
-                index += 26;
-                for (char i = 'A'; i <= 'Z'; i++)
-                {
-                    if (i == character)
-                        break;
-                    else
-                        index++;
-                }
-            }
-
-            prioSum += index;
+            prioSum += GetIndex(character);
             break;
         }
     }
@@ -47,29 +25,7 @@ for (int r = 0; r < rucksacks.Length; r+=3)
     {
         if(rucksacks[r+1].Contains(character) && rucksacks[r+2].Contains(character))
         {
-            int index = 1;
-            if (Char.IsLower(character))
-            {
-                for (char i = 'a'; i <= 'z'; i++)
-                {
-                    if (i == character)
-                        break;
-                    else
-                        index++;
-                }
-            }else
-            {
-                index += 26;
-                for (char i = 'A'; i <= 'Z'; i++)
-                {
-                    if (i == character)
-                        break;
-                    else
-                        index++;
-                }
-            }
-
-            groupSum += index;
+            groupSum += GetIndex(character);
             break;
         }
     }
@@ -79,3 +35,30 @@ Console.WriteLine("Priorities Sum: " + prioSum);
 Console.WriteLine("Group Sum: " + groupSum);
 
 Console.Read();
+
+int GetIndex(char character)
+{
+    int index = 1;
+    if (Char.IsLower(character))
+    {
+        for (char i = 'a'; i <= 'z'; i++)
+        {
+            if (i == character)
+                break;
+            else
+                index++;
+        }
+    }else
+    {
+        index += 26;
+        for (char i = 'A'; i <= 'Z'; i++)
+        {
+            if (i == character)
+                break;
+            else
+                index++;
+        }
+    }
+
+    return index;
+}
